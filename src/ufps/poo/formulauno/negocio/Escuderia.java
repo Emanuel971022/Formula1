@@ -58,7 +58,8 @@ public class Escuderia {
         
         for(Piloto p: pilotos)
             if(p != null)
-                piloto = p.toString()+"\nEscudería a la que pertenece: "+this.getNombre();
+                piloto = p.toString()
+                        +"\nEscudería a la que pertenece: "+this.getNombre();
         
         return piloto;
     }
