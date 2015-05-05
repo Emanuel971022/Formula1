@@ -83,7 +83,7 @@ public class EliminarPilotoPanel extends javax.swing.JPanel {
 
     private void cmdCargarPilotosEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCargarPilotosEliminarActionPerformed
         String nombre = this.cmbEscuderiaEliminarPiloto.getSelectedItem().toString();
-        this.ActualizarComboPiloto(nombre);
+        ActualizarComboPiloto(nombre);
     }//GEN-LAST:event_cmdCargarPilotosEliminarActionPerformed
 
     private void cmdEliminarPilotosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarPilotosActionPerformed

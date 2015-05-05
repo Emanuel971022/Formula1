@@ -43,6 +43,7 @@ public class Formula1Frame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formula 1");
+        setResizable(false);
 
         menuInicio.setText("Inicio");
         menuInicio.addActionListener(new java.awt.event.ActionListener() {

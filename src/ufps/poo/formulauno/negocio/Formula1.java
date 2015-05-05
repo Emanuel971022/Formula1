@@ -79,6 +79,16 @@ public class Formula1 {
         return mensaje;
     }
     
+    public String eliminarEscuderia(String nombreEscuderia){
+        for(int i=0; i<escuderias.length; i++)
+            if(escuderias[i]!=null &&
+                    escuderias[i].getNombre().equalsIgnoreCase(nombreEscuderia))
+                escuderias[i] = null;
+        
+        
+        return "Escudería eliminada con exito";
+    }
+    
     //--------------------------REQUERIMIENTOS OPERACIONALES-------------------//
     public Escuderia buscarEscuderia(String nombre){
         Escuderia escuderia = null;
@@ -114,10 +124,8 @@ public class Formula1 {
         String nombres = "";
         
         for(Escuderia e: escuderias)
-            if(e!=null && e.getNombre().equalsIgnoreCase(nombre)){
+            if(e!=null && e.getNombre().equalsIgnoreCase(nombre))
                 nombres = e.concatenarNombresPiloto();
-                System.out.println(e.concatenarInfoPiloto());
-            }
         
         return nombres;
     }
