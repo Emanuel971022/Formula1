@@ -8,7 +8,8 @@ public class Formula1Frame extends javax.swing.JFrame {
 
     private Formula1 form1;
     private JPanel bienvenidaPanel, escuderiaPanel, pilotoPanel,
-            consultarEscuderiaPanel, consultarPilotoPanel, eliminarPilotoPanel;
+            consultarEscuderiaPanel, consultarPilotoPanel, eliminarPilotoPanel,
+            eliminarEscuderiaPanel;
     
     public Formula1Frame() {
         initComponents();
@@ -80,7 +81,7 @@ public class Formula1Frame extends javax.swing.JFrame {
 
         jMenuBar1.add(menuRegistrar);
 
-        menuActualizar.setText("Actualizar");
+        menuActualizar.setText("Consultar");
 
         jmConsultarEscuderia.setText("Conusltar escuderia");
         jmConsultarEscuderia.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +104,11 @@ public class Formula1Frame extends javax.swing.JFrame {
         jMenu1.setText("Eliminar");
 
         jMenuItem1.setText("Eliminar escuderia");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem4.setText("Eliminar piloto");
@@ -172,6 +178,14 @@ public class Formula1Frame extends javax.swing.JFrame {
         pack();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        remover();
+        eliminarEscuderiaPanel = new EliminarEscuderiaPanel(form1);
+        
+        getContentPane().add(eliminarEscuderiaPanel);
+        pack();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     private void remover(){
         if(escuderiaPanel!=null)
             remove(escuderiaPanel);
@@ -185,6 +199,8 @@ public class Formula1Frame extends javax.swing.JFrame {
             remove(consultarPilotoPanel);
         if(eliminarPilotoPanel!=null)
             remove(eliminarPilotoPanel);
+        if(eliminarEscuderiaPanel!=null)
+            remove(eliminarEscuderiaPanel);
     }
     
     public static void main(String args[]) {
