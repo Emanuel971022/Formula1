@@ -19,20 +19,20 @@ public class EliminarPilotoPanel extends javax.swing.JPanel {
         cmbEscuderiaEliminarPiloto = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        cmdCargarPilotosEliminar = new javax.swing.JButton();
         cmbPilotosEliminar = new javax.swing.JComboBox();
         cmdEliminarPilotos = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(171, 255, 227));
+
+        cmbEscuderiaEliminarPiloto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEscuderiaEliminarPilotoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Escuderias: ");
 
         jLabel2.setText("Pilotos: ");
-
-        cmdCargarPilotosEliminar.setText("Cargar");
-        cmdCargarPilotosEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCargarPilotosEliminarActionPerformed(evt);
-            }
-        });
 
         cmdEliminarPilotos.setText("Eliminar");
         cmdEliminarPilotos.addActionListener(new java.awt.event.ActionListener() {
@@ -48,19 +48,16 @@ public class EliminarPilotoPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(cmdCargarPilotosEliminar)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbEscuderiaEliminarPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(cmdEliminarPilotos)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cmbPilotosEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmdEliminarPilotos, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbPilotosEliminar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbEscuderiaEliminarPiloto, 0, 168, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,8 +67,6 @@ public class EliminarPilotoPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(cmbEscuderiaEliminarPiloto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmdCargarPilotosEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbPilotosEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -80,11 +75,6 @@ public class EliminarPilotoPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cmdCargarPilotosEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCargarPilotosEliminarActionPerformed
-        String nombre = this.cmbEscuderiaEliminarPiloto.getSelectedItem().toString();
-        ActualizarComboPiloto(nombre);
-    }//GEN-LAST:event_cmdCargarPilotosEliminarActionPerformed
 
     private void cmdEliminarPilotosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEliminarPilotosActionPerformed
         String nombreEscuderia = this.cmbEscuderiaEliminarPiloto.getSelectedItem().toString();
@@ -96,6 +86,11 @@ public class EliminarPilotoPanel extends javax.swing.JPanel {
         this.ActualizarComboEscuderia();
         this.ActualizarComboPiloto(nombreEscuderia);
     }//GEN-LAST:event_cmdEliminarPilotosActionPerformed
+
+    private void cmbEscuderiaEliminarPilotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEscuderiaEliminarPilotoActionPerformed
+        String nombre = this.cmbEscuderiaEliminarPiloto.getSelectedItem().toString();
+        ActualizarComboPiloto(nombre);
+    }//GEN-LAST:event_cmbEscuderiaEliminarPilotoActionPerformed
     
     private void ActualizarComboEscuderia(){
         String nombre[] = this.form1.concatenarNombreEscuderia().split("-");
@@ -115,7 +110,6 @@ public class EliminarPilotoPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbEscuderiaEliminarPiloto;
     private javax.swing.JComboBox cmbPilotosEliminar;
-    private javax.swing.JButton cmdCargarPilotosEliminar;
     private javax.swing.JButton cmdEliminarPilotos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -26,6 +26,8 @@ public class EliminarEscuderiaPanel extends javax.swing.JPanel {
         cmbNombreEscuderiaEliminar = new javax.swing.JComboBox();
         cmdEliminarEscuderia = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 176, 218));
+
         jLabel1.setText("Escudería: ");
 
         cmdEliminarEscuderia.setText("Eliminar");

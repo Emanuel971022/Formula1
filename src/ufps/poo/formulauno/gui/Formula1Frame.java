@@ -25,25 +25,37 @@ public class Formula1Frame extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         miBienvenida = new javax.swing.JMenuItem();
+        Salir = new javax.swing.JMenuItem();
+        menuAcciones = new javax.swing.JMenu();
         menuRegistrar = new javax.swing.JMenu();
         miEscuderia = new javax.swing.JMenuItem();
         miPiloto = new javax.swing.JMenuItem();
         menuActualizar = new javax.swing.JMenu();
         ActualizarInfoEscuderia = new javax.swing.JMenuItem();
         actualizarInfoPiloto = new javax.swing.JMenuItem();
-        menuConsultar = new javax.swing.JMenu();
-        ConsultarEscuderia = new javax.swing.JMenuItem();
-        ConsultarPiloto = new javax.swing.JMenuItem();
         menuEliminar = new javax.swing.JMenu();
         EliminarEscuderia = new javax.swing.JMenuItem();
         EliminarPiloto = new javax.swing.JMenuItem();
+        menuConsultar = new javax.swing.JMenu();
+        ConsultarEscuderia = new javax.swing.JMenuItem();
+        ConsultarPiloto = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
         jMenuItem3.setText("jMenuItem3");
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formula 1");
@@ -64,7 +76,17 @@ public class Formula1Frame extends javax.swing.JFrame {
         });
         menuInicio.add(miBienvenida);
 
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+        menuInicio.add(Salir);
+
         jMenuBar1.add(menuInicio);
+
+        menuAcciones.setText("Acciones");
 
         menuRegistrar.setText("Registrar");
 
@@ -84,7 +106,7 @@ public class Formula1Frame extends javax.swing.JFrame {
         });
         menuRegistrar.add(miPiloto);
 
-        jMenuBar1.add(menuRegistrar);
+        menuAcciones.add(menuRegistrar);
 
         menuActualizar.setText("Actualizar");
 
@@ -104,27 +126,7 @@ public class Formula1Frame extends javax.swing.JFrame {
         });
         menuActualizar.add(actualizarInfoPiloto);
 
-        jMenuBar1.add(menuActualizar);
-
-        menuConsultar.setText("Consultar");
-
-        ConsultarEscuderia.setText("Conusltar escuderia");
-        ConsultarEscuderia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarEscuderiaActionPerformed(evt);
-            }
-        });
-        menuConsultar.add(ConsultarEscuderia);
-
-        ConsultarPiloto.setText("Consultar piloto");
-        ConsultarPiloto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarPilotoActionPerformed(evt);
-            }
-        });
-        menuConsultar.add(ConsultarPiloto);
-
-        jMenuBar1.add(menuConsultar);
+        menuAcciones.add(menuActualizar);
 
         menuEliminar.setText("Eliminar");
 
@@ -144,7 +146,29 @@ public class Formula1Frame extends javax.swing.JFrame {
         });
         menuEliminar.add(EliminarPiloto);
 
-        jMenuBar1.add(menuEliminar);
+        menuAcciones.add(menuEliminar);
+
+        jMenuBar1.add(menuAcciones);
+
+        menuConsultar.setText("Consultas");
+
+        ConsultarEscuderia.setText("Conusltar escuderia");
+        ConsultarEscuderia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarEscuderiaActionPerformed(evt);
+            }
+        });
+        menuConsultar.add(ConsultarEscuderia);
+
+        ConsultarPiloto.setText("Consultar piloto");
+        ConsultarPiloto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarPilotoActionPerformed(evt);
+            }
+        });
+        menuConsultar.add(ConsultarPiloto);
+
+        jMenuBar1.add(menuConsultar);
 
         setJMenuBar(jMenuBar1);
 
@@ -227,6 +251,10 @@ public class Formula1Frame extends javax.swing.JFrame {
         pack();
     }//GEN-LAST:event_actualizarInfoPilotoActionPerformed
 
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_SalirActionPerformed
+
     private void remover(){
         if(escuderiaPanel!=null)
             remove(escuderiaPanel);
@@ -284,10 +312,16 @@ public class Formula1Frame extends javax.swing.JFrame {
     private javax.swing.JMenuItem ConsultarPiloto;
     private javax.swing.JMenuItem EliminarEscuderia;
     private javax.swing.JMenuItem EliminarPiloto;
+    private javax.swing.JMenuItem Salir;
     private javax.swing.JMenuItem actualizarInfoPiloto;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JMenu menuAcciones;
     private javax.swing.JMenu menuActualizar;
     private javax.swing.JMenu menuConsultar;
     private javax.swing.JMenu menuEliminar;
