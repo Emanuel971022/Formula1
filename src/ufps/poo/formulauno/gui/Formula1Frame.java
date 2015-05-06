@@ -10,7 +10,8 @@ public class Formula1Frame extends javax.swing.JFrame {
     private JPanel bienvenidaPanel, escuderiaPanel, pilotoPanel,
             actualizarEscuderiaPanel, actualizarPilotoPanel, 
             consultarEscuderiaPanel, consultarPilotoPanel, 
-            eliminarPilotoPanel, eliminarEscuderiaPanel;
+            eliminarPilotoPanel, eliminarEscuderiaPanel,
+            acercaDePanel;
     
     public Formula1Frame() {
         initComponents();
@@ -29,6 +30,9 @@ public class Formula1Frame extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuInicio = new javax.swing.JMenu();
         miBienvenida = new javax.swing.JMenuItem();
@@ -46,6 +50,9 @@ public class Formula1Frame extends javax.swing.JFrame {
         menuConsultar = new javax.swing.JMenu();
         ConsultarEscuderia = new javax.swing.JMenuItem();
         ConsultarPiloto = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        Documentacion = new javax.swing.JMenuItem();
+        acercade = new javax.swing.JMenuItem();
 
         jMenuItem2.setText("jMenuItem2");
 
@@ -56,6 +63,12 @@ public class Formula1Frame extends javax.swing.JFrame {
 
         jMenu2.setText("Edit");
         jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("File");
+        jMenuBar3.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar3.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formula 1");
@@ -170,6 +183,21 @@ public class Formula1Frame extends javax.swing.JFrame {
 
         jMenuBar1.add(menuConsultar);
 
+        jMenu5.setText("Ayuda");
+
+        Documentacion.setText("Documentacion");
+        jMenu5.add(Documentacion);
+
+        acercade.setText("Acerca de");
+        acercade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acercadeActionPerformed(evt);
+            }
+        });
+        jMenu5.add(acercade);
+
+        jMenuBar1.add(jMenu5);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -255,6 +283,14 @@ public class Formula1Frame extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
+    private void acercadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acercadeActionPerformed
+        remover();
+        acercaDePanel = new AcerdaDePanel(form1);
+
+        getContentPane().add(acercaDePanel);
+        pack();
+    }//GEN-LAST:event_acercadeActionPerformed
+
     private void remover(){
         if(escuderiaPanel!=null)
             remove(escuderiaPanel);
@@ -274,6 +310,8 @@ public class Formula1Frame extends javax.swing.JFrame {
             remove(eliminarPilotoPanel);
         if(eliminarEscuderiaPanel!=null)
             remove(eliminarEscuderiaPanel);
+        if(acercaDePanel!=null)
+            remove(acercaDePanel);
     }
     
     public static void main(String args[]) {
@@ -310,14 +348,20 @@ public class Formula1Frame extends javax.swing.JFrame {
     private javax.swing.JMenuItem ActualizarInfoEscuderia;
     private javax.swing.JMenuItem ConsultarEscuderia;
     private javax.swing.JMenuItem ConsultarPiloto;
+    private javax.swing.JMenuItem Documentacion;
     private javax.swing.JMenuItem EliminarEscuderia;
     private javax.swing.JMenuItem EliminarPiloto;
     private javax.swing.JMenuItem Salir;
+    private javax.swing.JMenuItem acercade;
     private javax.swing.JMenuItem actualizarInfoPiloto;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
