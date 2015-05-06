@@ -89,6 +89,18 @@ public class Formula1 {
         return "Escudería eliminada con exito";
     }
     
+    public String actualizarEscuderia(String nombre, String jefeEquipo, 
+            String jefeTecnico, String chasis, int añoIngreso){
+        Escuderia escu = new Escuderia(nombre, jefeEquipo, jefeTecnico, chasis, añoIngreso);
+        
+        for(int i=0; i<escuderias.length; i++)
+            if(escuderias[i]!=null && 
+                    escuderias[i].getNombre().equalsIgnoreCase(nombre))
+                escuderias[i] = escu;
+    
+        return "Cambios guardados con exito";
+    }
+    
     //--------------------------REQUERIMIENTOS OPERACIONALES-------------------//
     public Escuderia buscarEscuderia(String nombre){
         Escuderia escuderia = null;
@@ -128,5 +140,16 @@ public class Formula1 {
                 nombres = e.concatenarNombresPiloto();
         
         return nombres;
+    }
+    
+    public String concatenarInfoEscuderias(String nombre){
+        String info = "";
+        for(Escuderia e: escuderias)
+            if(e!=null && e.getNombre().equalsIgnoreCase(nombre))
+                info = e.getNombre()+"-"+e.getJefeEquipo()
+                        +"-"+e.getJefeTecnico()+"-"+e.getChasis()
+                        +"-"+e.getAnioIngreso();
+            
+        return info;
     }
 }

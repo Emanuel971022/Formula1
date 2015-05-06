@@ -36,6 +36,12 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Escudería: ");
 
+        cmbEscuderiaActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEscuderiaActualizarActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Nombre: ");
 
         jLabel4.setText("Jefe del equipo: ");
@@ -134,8 +140,32 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cmdLimpiarActionPerformed
 
     private void cmdGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarCambiosActionPerformed
-        // TODO add your handling code here:
+        String nombre = txtNombreEscuderia.getText();
+        String jefeEquipo = txtJefeEscuderia.getText();
+        String jefeTecnico = txtJefeTecnicoEscuderia.getText();
+        String Chasis = txtChasisEscuderia.getText();
+        String anioIngreso = txtAñoIngresoEscuderia.getText();
+        
+        if(nombre.isEmpty() || jefeEquipo.isEmpty() || jefeTecnico.isEmpty() 
+                || Chasis.isEmpty() || anioIngreso.isEmpty()){
+            Ventana.imp("No pueden haber espacios vacios", "Sistema");
+            return;
+        }
+        
+        String mensaje = form1.actualizarEscuderia(nombre, 
+                jefeEquipo, jefeTecnico, Chasis, Integer.parseInt(anioIngreso));
+        Ventana.imp(mensaje, "Sistma");
     }//GEN-LAST:event_cmdGuardarCambiosActionPerformed
+
+    private void cmbEscuderiaActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEscuderiaActualizarActionPerformed
+        String nombre = cmbEscuderiaActualizar.getSelectedItem().toString();
+        String info[] = form1.concatenarInfoEscuderias(nombre).split("-");
+        txtNombreEscuderia.setText(info[0]);
+        txtJefeEscuderia.setText(info[1]);
+        txtJefeTecnicoEscuderia.setText(info[2]);
+        txtChasisEscuderia.setText(info[3]);
+        txtAñoIngresoEscuderia.setText(info[4]);
+    }//GEN-LAST:event_cmbEscuderiaActualizarActionPerformed
 
     private void llenarCombo(){
         String nombre[] = form1.concatenarNombreEscuderia().split("-");
