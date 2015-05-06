@@ -1,5 +1,9 @@
 package ufps.poo.formulauno.gui;
 
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 import ufps.poo.formulauno.negocio.Formula1;
 
 public class ActualizarPilotoPanel extends javax.swing.JPanel {
@@ -15,6 +19,7 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bgPeriodoContrato = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,10 +62,13 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
 
         jLabel8.setText("Periodo de contrato: ");
 
+        bgPeriodoContrato.add(rbPeriodoContrato1_3);
         rbPeriodoContrato1_3.setText("1-3");
 
+        bgPeriodoContrato.add(rbPeriodoContrato4_6);
         rbPeriodoContrato4_6.setText("4-6");
 
+        bgPeriodoContrato.add(rbPeriodoContrato7_10);
         rbPeriodoContrato7_10.setText("7-10");
 
         jLabel9.setText("Escudería: ");
@@ -229,7 +237,68 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
         this.limpiarCampos();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+    private String obtenerTexto(ButtonGroup bg) {
+        String valor = "";
+
+        Enumeration<AbstractButton> radios = bg.getElements();
+        while (radios.hasMoreElements()) {
+            JRadioButton temp = (JRadioButton) radios.nextElement();
+            if (temp.isSelected()) {
+                valor = temp.getText();
+            }
+        }
+
+        return valor;
+    }
+    
+    private void limpiarCampos(){
+        this.txtNombrePiloto.setText("");
+        this.txtAñoNacimiento.setText("");
+        this.txtAñoIngreso.setText("");
+        this.cmbPaisOrigen.setSelectedIndex(0);
+        this.cmbEscuderiaPerteneciente.setSelectedIndex(0);
+        this.bgPeriodoContrato.clearSelection();
+        this.chkbAñoCampeon_2011.setSelected(false);
+        this.chkbAñoCampeon_2012.setSelected(false);
+        this.chkbAñoCampeon_2013.setSelected(false);
+        this.chkbAñoCampeon_2014.setSelected(false);
+    }
+
+    private String obtenerCheck() {
+        String valor = "";
+
+        if (this.chkbAñoCampeon_2011.isSelected()) {
+            valor += this.chkbAñoCampeon_2011.getText() + "-";
+        }
+
+        if (this.chkbAñoCampeon_2012.isSelected()) {
+            valor += this.chkbAñoCampeon_2012.getText() + "-";
+        }
+
+        if (this.chkbAñoCampeon_2013.isSelected()) {
+            valor += this.chkbAñoCampeon_2013.getText() + "-";
+        }
+
+        if (this.chkbAñoCampeon_2014.isSelected()) {
+            valor += this.chkbAñoCampeon_2014.getText() + "-";
+        }
+
+        return valor;
+    }
+
+    private static boolean isNumeric(String num) {
+        try {
+            int d = Integer.parseInt(num);
+        } catch (NumberFormatException nfe) {
+            System.out.println(""+nfe);
+            return false;
+        }
+
+        return true;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bgPeriodoContrato;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JCheckBox chkbAñoCampeon_2011;

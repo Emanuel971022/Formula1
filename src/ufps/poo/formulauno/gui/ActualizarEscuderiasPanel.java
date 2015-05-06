@@ -9,7 +9,7 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
     public ActualizarEscuderiasPanel(Formula1 form1) {
         initComponents();
         this.form1 = form1;
-        
+        llenarCombo();
     }
 
     @SuppressWarnings("unchecked")
@@ -17,7 +17,7 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cmbEscuderiaActualizar = new javax.swing.JComboBox();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         txtNombreEscuderia = new javax.swing.JTextField();
@@ -29,8 +29,8 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtAñoIngresoEscuderia = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cmdGuardarCambios = new javax.swing.JButton();
+        cmdLimpiar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(250, 180, 145));
 
@@ -46,9 +46,19 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Año de ingreso: ");
 
-        jButton2.setText("Guardar");
+        cmdGuardarCambios.setText("Guardar cambios");
+        cmdGuardarCambios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdGuardarCambiosActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Limpiar");
+        cmdLimpiar.setText("Limpiar");
+        cmdLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,14 +68,14 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(cmdLimpiar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(cmdGuardarCambios))
                     .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cmbEscuderiaActualizar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -88,7 +98,7 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEscuderiaActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -113,16 +123,49 @@ public class ActualizarEscuderiasPanel extends javax.swing.JPanel {
                     .addComponent(txtAñoIngresoEscuderia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(cmdGuardarCambios)
+                    .addComponent(cmdLimpiar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_cmdLimpiarActionPerformed
+
+    private void cmdGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarCambiosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdGuardarCambiosActionPerformed
+
+    private void llenarCombo(){
+        String nombre[] = form1.concatenarNombreEscuderia().split("-");
+        cmbEscuderiaActualizar.removeAllItems();
+        for(String x: nombre)
+            cmbEscuderiaActualizar.addItem(x);
+    }
+    
+    private void limpiarCampos(){
+        this.txtNombreEscuderia.setText("");
+        this.txtJefeEscuderia.setText("");
+        this.txtJefeTecnicoEscuderia.setText("");
+        this.txtAñoIngresoEscuderia.setText("");
+        this.txtChasisEscuderia.setText("");
+    }
+    
+    private static boolean isNumeric(String numero){
+        try{
+            int num = Integer.parseInt(numero);
+        }catch(NumberFormatException nfe){
+            return false;
+        }
+        
+        return true;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cmbEscuderiaActualizar;
+    private javax.swing.JButton cmdGuardarCambios;
+    private javax.swing.JButton cmdLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
