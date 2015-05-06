@@ -13,6 +13,7 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
     public ActualizarPilotoPanel(Formula1 form1) {
         initComponents();
         this.form1 = form1;
+        llenarCombo();
     }
 
     @SuppressWarnings("unchecked")
@@ -43,8 +44,8 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
+        cmbEscuderiaActualizar = new javax.swing.JComboBox();
+        cmbPilotoActualizar = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(255, 255, 204));
 
@@ -112,8 +113,8 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cmbEscuderiaActualizar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbPilotoActualizar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnLimpiar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -156,11 +157,11 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEscuderiaActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbPilotoActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -237,6 +238,16 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
         this.limpiarCampos();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+    private void llenarCombo(){
+        String nombre[] = form1.concatenarNombreEscuderia().split("-");
+        cmbEscuderiaActualizar.removeAllItems();
+        cmbEscuderiaPerteneciente.removeAllItems();
+        for(String x: nombre){
+            cmbEscuderiaActualizar.addItem(x);
+            cmbEscuderiaPerteneciente.addItem(x);
+        }
+    }
+    
     private String obtenerTexto(ButtonGroup bg) {
         String valor = "";
 
@@ -305,10 +316,10 @@ public class ActualizarPilotoPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox chkbAñoCampeon_2012;
     private javax.swing.JCheckBox chkbAñoCampeon_2013;
     private javax.swing.JCheckBox chkbAñoCampeon_2014;
+    private javax.swing.JComboBox cmbEscuderiaActualizar;
     private javax.swing.JComboBox cmbEscuderiaPerteneciente;
     private javax.swing.JComboBox cmbPaisOrigen;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox cmbPilotoActualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
